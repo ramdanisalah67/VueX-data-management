@@ -7,11 +7,7 @@
       </button>
     </p>
     <div class="content">
-      <div
-        class="card w-50 m-auto bg-light"
-        v-for="p in store.getters.getProducts"
-        :key="p.id"
-      >
+      <div class="card w-50 m-auto bg-light" v-for="p in products" :key="p.id">
         <div class="card-body">
           <h5 class="card-title">{{ p.title }}</h5>
           <p class="card-text">
@@ -24,13 +20,15 @@
   </div>
 </template>
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-
-const chargeProducts = () => {
-  store.dispatch("doGetProducts");
+const products = ref([]);
+const chargeProducts = async () => {
+  await store.dispatch("doGetProducts");
+  products.value = store.getters.getProducts;
+  console.log(products.value);
 };
 
 onMounted(() => {
