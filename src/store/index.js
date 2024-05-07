@@ -2,23 +2,27 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    contactEmail: "ramdanisalah67@gmail.com",
-    profile: "JAVA DEVELOPER",
+    products: [],
   },
   getters: {
-    getInfo(state) {
-      return (
-        "email => " + state.contactEmail + " | profile => " + state.profile
-      );
-    },
-    getProfile(state) {
-      return state.profile;
+    getProducts(state) {
+      return state.products;
     },
   },
   mutations: {
-    changeProfile(state) {
-      state.profile = "FullStack Java/Angular Developer";
-      console.log(state);
+    setProducts(state, result) {
+      state.products = result;
+      console.log(result);
+    },
+  },
+
+  actions: {
+    async doGetProducts(context) {
+      await fetch("https://dummyjson.com/products")
+        .then((res) => res.json())
+        .then((data) => {
+          context.commit("setProducts", data.products);
+        });
     },
   },
 });

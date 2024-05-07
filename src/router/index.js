@@ -13,6 +13,11 @@ const routes = [
     name: "contact",
     component: () => import("@/components/ContactPage"),
   },
+  {
+    path: "/products",
+    name: "products",
+    component: () => import("@/components/ProductsPage"),
+  },
 ];
 
 const router = createRouter({
