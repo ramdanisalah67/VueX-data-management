@@ -2,10 +2,9 @@
   <div class="body">
     <div>Welcome,this is products page</div>
     <p>
-      <button class="btn btn-info m-3" @click="checkProducts">
+      <button class="btn btn-dark m-3" @click="checkProducts">
         checkProducts
       </button>
-      <button class="btn btn-dark" @click="getProducts">Get Products</button>
     </p>
     <div class="content">
       <div
@@ -33,6 +32,7 @@ const store = useStore();
 const chargeProducts = () => {
   store.dispatch("doGetProducts");
 };
+
 onMounted(() => {
   chargeProducts();
 });
