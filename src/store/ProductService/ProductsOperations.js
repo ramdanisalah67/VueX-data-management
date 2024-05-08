@@ -1,6 +1,8 @@
 export default {
+  strict: true,
   state: {
     products: [],
+    name: "salah-eddine",
   },
   getters: {
     getProducts(state) {
@@ -10,7 +12,6 @@ export default {
   mutations: {
     setProducts(state, result) {
       state.products = result;
-      console.log(result);
     },
   },
 

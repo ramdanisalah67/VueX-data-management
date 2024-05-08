@@ -18,6 +18,11 @@ const routes = [
     name: "products",
     component: () => import("@/components/ProductsPage"),
   },
+  {
+    path: "/calcul",
+    name: "calcul",
+    component: () => import("@/components/calculPage"),
+  },
 ];
 
 const router = createRouter({

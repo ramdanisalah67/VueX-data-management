@@ -11,3 +11,9 @@ import { useStore } from "vuex";
 const store = useStore();
 const info = store.getters.getInfo;
 </script>
+
+<style>
+.body {
+  color: white;
+}
+</style>
